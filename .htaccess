@@ -1,0 +1,9 @@
+SetEnv PHP_VER 5_3
+DirectoryIndex index.php
+RewriteEngine on
+#Mise en maintenance
+#RewriteRule ^(.*)$ maintenance.php [L]
+RewriteCond $1 !^(index\.php|images|css|js|robots\.txt|favicon\.ico)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ ./index.php?/$1 [L,QSA]
